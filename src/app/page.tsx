@@ -7,7 +7,6 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingAIButton } from "@/components/layout/FloatingAI";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { MarqueeTicker } from "@/components/sections/MarqueeTicker";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
@@ -222,7 +221,6 @@ export default function Home() {
           <Navbar />
           <main>
             <HeroSection />
-            <MarqueeTicker />
             <ServicesSection />
             <ProcessSection />
             <ScrollStorySection />
@@ -237,4 +235,3 @@ export default function Home() {
     </>
   );
 }
-
