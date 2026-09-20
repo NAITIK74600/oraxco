@@ -3,18 +3,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ExternalLink, X, Globe, Zap, Code2 } from "lucide-react";
-import Image from "next/image";
 
 const projects = [
   {
     id: 1,
-    title: "Batla Medicos",
+    title: "Muscle Mantra",
     category: "Live Production",
     year: "2026",
-    url: "https://batlamedicos.shop/",
-    image: "/images/batla-medicos-preview.jpg",
-    desc: "The first live production website delivered by soft-era Studio — a full-featured medical retail storefront built and shipped end-to-end. This build anchors our public portfolio while the studio scales.",
-    result: "Live at batlamedicos.shop",
+    url: "http://musclemantra.shop/",
+    image: "/images/oraxco-logo.png",
+    desc: "A live Oraxco project, designed and delivered as a production-ready website.",
+    result: "Live at musclemantra.shop",
     accent: "oklch(65% 0.25 250)",
     accentGrad: "linear-gradient(135deg, oklch(65% 0.25 250), oklch(65% 0.28 290))",
     tags: ["Next.js", "Production Launch", "Live Website", "Medical Retail"],
@@ -24,10 +23,98 @@ const projects = [
       { icon: Code2, label: "Type", value: "Full Build" },
     ],
   },
+  {
+    id: 2,
+    title: "3A Creative",
+    category: "Live Production",
+    year: "2026",
+    url: "https://3acreative.ch/",
+    image: "/images/oraxco-logo.png",
+    desc: "A live Oraxco project, designed and delivered as a production-ready website.",
+    result: "Live at 3acreative.ch",
+    accent: "oklch(65% 0.28 290)",
+    accentGrad: "linear-gradient(135deg, oklch(65% 0.28 290), oklch(65% 0.28 330))",
+    tags: ["Production Launch", "Live Website"],
+    metrics: [{ icon: Globe, label: "Status", value: "Live" }, { icon: Zap, label: "Delivery", value: "Website" }, { icon: Code2, label: "Type", value: "Full Build" }],
+  },
+  {
+    id: 3,
+    title: "Easy Motors Biel",
+    category: "Live Production",
+    year: "2026",
+    url: "https://easymotorsbiel.ch/",
+    image: "/images/oraxco-logo.png",
+    desc: "A live Oraxco project, designed and delivered as a production-ready website.",
+    result: "Live at easymotorsbiel.ch",
+    accent: "oklch(72% 0.22 210)",
+    accentGrad: "linear-gradient(135deg, oklch(72% 0.22 210), oklch(65% 0.28 290))",
+    tags: ["Production Launch", "Live Website"],
+    metrics: [{ icon: Globe, label: "Status", value: "Live" }, { icon: Zap, label: "Delivery", value: "Website" }, { icon: Code2, label: "Type", value: "Full Build" }],
+  },
+  {
+    id: 4,
+    title: "Edufyi Tech Solutions",
+    category: "Live Production",
+    year: "2026",
+    url: "https://www.edufyitechsolutions.com/",
+    image: "/images/oraxco-logo.png",
+    desc: "A live Oraxco project, designed and delivered as a production-ready website.",
+    result: "Live at edufyitechsolutions.com",
+    accent: "oklch(65% 0.28 330)",
+    accentGrad: "linear-gradient(135deg, oklch(65% 0.28 330), oklch(65% 0.25 250))",
+    tags: ["Production Launch", "Live Website"],
+    metrics: [{ icon: Globe, label: "Status", value: "Live" }, { icon: Zap, label: "Delivery", value: "Website" }, { icon: Code2, label: "Type", value: "Full Build" }],
+  },
+  {
+    id: 5,
+    title: "Batla Medicos",
+    category: "Live Production",
+    year: "2026",
+    url: "https://batlamedicos.shop/",
+    image: "/images/batla-medicos-preview.jpg",
+    desc: "A full-featured medical retail storefront, built and shipped as a live Oraxco production website.",
+    result: "Live at batlamedicos.shop",
+    accent: "oklch(68% 0.24 175)",
+    accentGrad: "linear-gradient(135deg, oklch(68% 0.24 175), oklch(65% 0.25 250))",
+    tags: ["Medical Retail", "Production Launch", "Live Website"],
+    metrics: [{ icon: Globe, label: "Status", value: "Live" }, { icon: Zap, label: "Delivery", value: "Website" }, { icon: Code2, label: "Type", value: "Full Build" }],
+  },
 ];
 
 const filters = ["All", "Live Production"] as const;
 type Filter = (typeof filters)[number];
+
+function ProjectThumbnail({ project }: { project: (typeof projects)[number] }) {
+  const domain = new URL(project.url).hostname.replace("www.", "");
+  const panelLayouts = ["grid-cols-[1.15fr_0.85fr]", "grid-cols-[0.8fr_1.2fr]", "grid-cols-3", "grid-cols-[1fr_0.7fr_0.7fr]", "grid-cols-[0.9fr_1.1fr]"];
+
+  return (
+    <div className="absolute inset-0 p-4 md:p-5" style={{ background: `linear-gradient(135deg, ${project.accent.replace(")", " / 20%)")}, oklch(9% 0.016 270))` }}>
+      <div className="absolute inset-0 grid-bg opacity-20" />
+      <div className="relative h-full rounded-lg overflow-hidden border" style={{ background: "oklch(11% 0.018 270 / 88%)", borderColor: "oklch(100% 0 0 / 10%)" }}>
+        <div className="h-7 px-3 flex items-center gap-1.5 border-b" style={{ borderColor: "oklch(100% 0 0 / 8%)" }}>
+          <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
+          <span className="w-1.5 h-1.5 rounded-full bg-white/12" />
+          <span className="w-1.5 h-1.5 rounded-full bg-white/8" />
+          <span className="ml-2 text-[8px] font-mono truncate" style={{ color: "oklch(60% 0.01 270)" }}>{domain}</span>
+        </div>
+        <div className="p-4 md:p-5 h-[calc(100%-1.75rem)]">
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-[9px] font-bold tracking-[0.18em] uppercase" style={{ color: project.accent }}>{project.title}</span>
+            <span className="w-8 h-1 rounded-full" style={{ background: project.accent }} />
+          </div>
+          <div className={`grid ${panelLayouts[project.id - 1]} gap-2 h-[calc(100%-2rem)]`}>
+            {Array.from({ length: project.id === 3 || project.id === 4 ? 3 : 2 }).map((_, index) => (
+              <div key={index} className="rounded-md p-2 overflow-hidden" style={{ background: index === 0 ? project.accent.replace(")", " / 18%)") : "oklch(16% 0.02 270)" }}>
+                {index === 0 ? <><div className="h-2 w-3/4 rounded-full bg-white/45 mb-2" /><div className="h-1.5 w-full rounded-full bg-white/15 mb-1.5" /><div className="h-1.5 w-2/3 rounded-full bg-white/10" /><div className="mt-3 h-8 rounded" style={{ background: project.accent.replace(")", " / 35%)") }} /></> : <><div className="h-1.5 w-1/2 rounded-full bg-white/20 mb-2" /><div className="h-10 rounded bg-white/5" /></>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ── Project Card ─────────────────────────────────────────────────────────────
 function ProjectCard({
@@ -39,8 +126,6 @@ function ProjectCard({
   index: number;
   onClick: () => void;
 }) {
-  const [imgErr, setImgErr] = useState(false);
-
   return (
     <motion.article
       className="group relative rounded-2xl overflow-hidden cursor-pointer flex flex-col"
@@ -54,26 +139,7 @@ function ProjectCard({
     >
       {/* ── Image area ── */}
       <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
-        {!imgErr ? (
-          <Image
-            src={project.image}
-            alt={`${project.title} screenshot`}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-            onError={() => setImgErr(true)}
-            unoptimized
-          />
-        ) : (
-          /* Fallback when image fails */
-          <div
-            className="absolute inset-0 flex items-center justify-center"
-            style={{ background: `linear-gradient(135deg, ${project.accent.replace(")", " / 18%)")}, oklch(10% 0.015 270))` }}
-          >
-            <div className="absolute inset-0 grid-bg opacity-20" />
-            <span className="text-6xl font-black" style={{ fontFamily: "var(--font-sora-var)", color: project.accent, opacity: 0.3 }}>BM</span>
-          </div>
-        )}
+        <ProjectThumbnail project={project} />
 
         {/* Hover overlay */}
         <motion.div
@@ -151,8 +217,6 @@ function ProjectModal({
   project: (typeof projects)[number];
   onClose: () => void;
 }) {
-  const [imgErr, setImgErr] = useState(false);
-
   return (
     <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
@@ -175,21 +239,7 @@ function ProjectModal({
       >
         {/* Image */}
         <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
-          {!imgErr ? (
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              sizes="672px"
-              className="object-cover object-top"
-              onError={() => setImgErr(true)}
-              unoptimized
-            />
-          ) : (
-            <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${project.accent.replace(")", " / 20%)")}, oklch(10% 0.015 270))` }}>
-              <div className="absolute inset-0 grid-bg opacity-25" />
-            </div>
-          )}
+          <ProjectThumbnail project={project} />
 
           {/* Gradient overlay on image */}
           <div className="absolute inset-0" style={{ background: "linear-gradient(to top, oklch(11% 0.018 270) 0%, transparent 60%)" }} />

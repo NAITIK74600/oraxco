@@ -3,7 +3,7 @@ import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 
 export const metadata: Metadata = {
   title: "Cookie Policy",
-  description: "How soft-era uses cookies and how you can control them.",
+  description: "How Oraxco uses cookies and how you can control them.",
 };
 
 const sections = [
@@ -21,7 +21,7 @@ const sections = [
   },
   {
     title: "Analytics & Performance Cookies",
-    body: `We may use analytics tools (such as Google Analytics or Netlify Analytics) that place cookies to collect aggregate, anonymised data about how visitors use our site — pages visited, time spent, and referral sources. This data helps us improve the site. No personal identity is tracked.`,
+    body: `We may use analytics tools that place cookies to collect aggregate, anonymised data about how visitors use our site — pages visited, time spent, and referral sources. This data helps us improve the site. No personal identity is tracked.`,
   },
   {
     title: "Third-Party Cookies",

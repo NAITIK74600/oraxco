@@ -3,7 +3,7 @@ import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How soft-era collects, uses, and protects your personal information.",
+  description: "How Oraxco collects, uses, and protects your personal information.",
 };
 
 const sections = [
@@ -21,7 +21,7 @@ const sections = [
   },
   {
     title: "Third-Party Services",
-    body: `We use Netlify for hosting (subject to Netlify's Privacy Policy) and may use Google Analytics or similar tools for aggregate traffic analysis. These services have their own privacy policies and data-handling practices which we encourage you to review.`,
+    body: `We may use privacy-conscious analytics tools to understand aggregate traffic patterns. These services have their own privacy policies and data-handling practices which we encourage you to review.`,
   },
   {
     title: "Data Retention",

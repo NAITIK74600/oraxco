@@ -10,14 +10,14 @@ export function PageLoader() {
   useEffect(() => {
     let current = 0;
     const interval = setInterval(() => {
-      current += Math.random() * 18 + 4;
+      current += Math.random() * 30 + 18;
       if (current >= 100) {
         current = 100;
         clearInterval(interval);
-        setTimeout(() => setLoading(false), 400);
+        setTimeout(() => setLoading(false), 120);
       }
       setProgress(current);
-    }, 60);
+    }, 35);
     return () => clearInterval(interval);
   }, []);
 

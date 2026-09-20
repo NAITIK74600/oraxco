@@ -29,15 +29,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "soft-era — Creative Studio",
-    template: "%s — soft-era",
+    default: "Oraxco — Creative Studio",
+    template: "%s — Oraxco",
   },
   description:
-    "soft-era is a founder-led creative studio established in 2026. We design and build launch-ready digital experiences, with Batla Medicos as our first live production project.",
-  keywords: ["creative studio", "web design", "frontend development", "batla medicos", "netlify", "next.js"],
+    "Oraxco is a creative studio that designs and builds launch-ready digital experiences.",
+  keywords: ["Oraxco", "creative studio", "web design", "frontend development", "next.js"],
   openGraph: {
-    title: "soft-era — Creative Studio",
-    description: "Established in 2026. Launch-ready digital experiences that command attention.",
+    title: "Oraxco — Creative Studio",
+    description: "Launch-ready digital experiences that command attention.",
     type: "website",
     locale: "en_US",
   },

@@ -62,7 +62,7 @@ export function HeroSection() {
   };
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6">
+    <section ref={sectionRef} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 pt-28 pb-10 md:pt-32">
 
       {/* ── Far bg plane: grid + top aurora ── */}
       <motion.div className="absolute inset-0 pointer-events-none" style={{ y: yFar, filter: farFilter }}>
@@ -123,7 +123,7 @@ export function HeroSection() {
         {/* Eyebrow */}
         <motion.div variants={itemVar} className="flex items-center justify-center gap-3 mb-7">
           <div className="h-px w-8" style={{ background: "oklch(65% 0.28 290 / 50%)" }} />
-          <span className="text-xs font-semibold tracking-[0.22em] uppercase" style={{ color: "oklch(65% 0.28 290)" }}>
+          <span className="text-[10px] md:text-xs font-semibold tracking-[0.18em] md:tracking-[0.22em] uppercase whitespace-nowrap" style={{ color: "oklch(65% 0.28 290)" }}>
             Startup Agency · Est. 2026
           </span>
           <div className="h-px w-8" style={{ background: "oklch(65% 0.28 290 / 50%)" }} />
@@ -150,10 +150,7 @@ export function HeroSection() {
           style={{ color: "oklch(55% 0.01 270)" }}
           variants={itemVar}
         >
-          soft-era is a founder-led creative studio building clean, launch-ready digital experiences. Our first live production website is{" "}
-          <a href="https://batlamedicos.shop/" target="_blank" rel="noreferrer" className="underline decoration-white/30 underline-offset-4" style={{ color: "oklch(75% 0.01 270)" }}>
-            batlamedicos.shop
-          </a>.
+          Oraxco is a creative studio building clean, launch-ready digital experiences. Explore a selection of our live projects below.
         </motion.p>
 
         {/* CTAs */}
@@ -169,7 +166,7 @@ export function HeroSection() {
               Start a Project <ArrowUpRight size={18} />
             </motion.span>
           </Link>
-          <a href="https://batlamedicos.shop/" target="_blank" rel="noreferrer">
+          <a href="http://musclemantra.shop/" target="_blank" rel="noreferrer">
             <motion.span
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-medium"
               style={{ background: "oklch(15% 0.02 270)", border: "1px solid oklch(28% 0.03 270)", color: "oklch(78% 0.01 270)" }}
@@ -190,8 +187,8 @@ export function HeroSection() {
         >
           {[
             { label: "Established", value: "2026" },
-            { label: "Live Websites", value: "1" },
-            { label: "Production Demo", value: "Batla" },
+            { label: "Live Websites", value: "5" },
+            { label: "Portfolio", value: "Oraxco" },
             { label: "Status", value: "Live" },
           ].map(({ label, value }) => (
             <div key={label} className="text-center">

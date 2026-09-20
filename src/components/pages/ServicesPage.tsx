@@ -1,15 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, ChevronDown, Sparkles, Wand2, Layers3 } from "lucide-react";
+import { ArrowUpRight, ChevronDown, Sparkles, Wand2, Layers3, MapPinned } from "lucide-react";
 import Link from "next/link";
-
-const LampContainer = dynamic(
-  () => import("@/components/ui/lamp").then((m) => ({ default: m.LampContainer })),
-  { ssr: false, loading: () => <div className="h-[420px]" /> }
-);
 
 const services = [
   {
@@ -32,7 +26,7 @@ const services = [
     pricing: "Custom quote",
     deliverables: ["Visual Direction", "Logo Refresh", "Color System", "Typography Pairing", "Component Language", "Launch Assets"],
     process: ["Audit the brand", "Set the direction", "Build the system", "Apply it to pages", "Prepare launch assets"],
-    caseStudy: { title: "soft-era launch system → in active use", href: "/" },
+    caseStudy: { title: "Oraxco launch system → in active use", href: "/" },
   },
   {
     id: "03",
@@ -45,19 +39,31 @@ const services = [
     process: ["Audit interaction needs", "Prototype key moments", "Build performant motion", "Test reduced-motion fallbacks", "Ship final polish"],
     caseStudy: { title: "Batla Medicos → production-ready launch polish", href: "https://batlamedicos.shop/" },
   },
+  {
+    id: "04",
+    label: "SEO, Local Presence & Digital Footprint",
+    accent: "oklch(68% 0.24 175)",
+    headline: "Be found where local customers are looking.",
+    desc: "We connect your website, search visibility, local listings, and business profiles into one clear digital presence that customers can discover and trust.",
+    pricing: "Custom quote",
+    deliverables: ["SEO Foundations", "Google Business Profile Setup", "Google Maps Presence", "Local Directory Listings", "Review-Request System", "Analytics & Search Console"],
+    process: ["Audit your current presence", "Set up business profiles", "Optimize local pages", "Connect tracking", "Launch and monitor"],
+    caseStudy: { title: "Shree Laundry — local digital presence", href: "http://shreelaundry.site/" },
+  },
 ];
 
 const faqs = [
-  { q: "Are you an established studio or a new startup agency?", a: "soft-era is a creative studio established in 2026. We prefer stating that clearly rather than inflating experience claims." },
-  { q: "What live work can you show right now?", a: "Our current live public project is Batla Medicos. It is the production reference we use in portfolio copy today." },
-  { q: "Do you only take website work?", a: "Our strongest current offer is design and frontend delivery for launch-ready websites. Adjacent branding and motion support can be scoped when it directly improves the launch." },
-  { q: "Can you deploy to Netlify?", a: "Yes. This site is being prepared for Netlify deployment, and we can structure new builds with deployment readiness from the start." },
+  { q: "Are you an established studio or a new startup agency?", a: "Oraxco is a creative studio established in 2026. We prefer stating that clearly rather than inflating experience claims." },
+  { q: "What live work can you show right now?", a: "We currently feature five live websites: Muscle Mantra, 3A Creative, Easy Motors Biel, Edufyi Tech Solutions, and Batla Medicos." },
+  { q: "Do you only take website work?", a: "No. Alongside websites, we set up SEO foundations, Google Business Profiles, Google Maps visibility, local listings, review flows, and performance tracking." },
+  { q: "Can you set up our Google Business Profile and local SEO?", a: "Yes. We can prepare and optimize your profile, align your website with local search terms, connect Maps and directory listings, and establish the tools needed to track visibility." },
+  { q: "Can you support deployment?", a: "Yes. We can prepare websites for a reliable production launch and support the handoff to your preferred hosting platform." },
   { q: "How do you handle copy and accuracy?", a: "We avoid invented numbers, fabricated testimonials, and placeholder case studies in production work. If a claim cannot be verified, we write around it honestly." },
   { q: "How do we start?", a: "Share the website scope, launch target, and reference material. We'll shape the page system, build plan, and deployment path from there." },
 ];
 
 const ease = "easeOut" as const;
-const heroBadges = ["Strategy-led", "Design-heavy", "Build-ready", "Launch-first"];
+const heroBadges = ["Strategy-led", "Design-heavy", "Build-ready", "SEO-ready", "Launch-first"];
 
 function ServicesHero() {
   return (
@@ -69,14 +75,14 @@ function ServicesHero() {
       <div className="max-w-6xl mx-auto">
         <motion.div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs tracking-[0.18em] uppercase mb-5 glass" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} style={{ color: "oklch(65% 0.28 290)" }}>
           <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
-          Three Disciplines
+          Four Disciplines
         </motion.div>
         <motion.h1 className="text-5xl md:text-7xl lg:text-[6rem] font-black mb-6 leading-[0.98] tracking-tight" style={{ fontFamily: "var(--font-sora-var)" }} initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease }}>
           Service architecture<br />
           <span className="text-gradient-pp">for serious launches.</span>
         </motion.h1>
         <motion.p className="text-base md:text-lg leading-relaxed max-w-2xl" style={{ color: "oklch(55% 0.01 270)" }} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-          soft-era services are designed as one connected system: strategy that sets direction, design that builds trust, and execution that ships in production with confidence.
+          Oraxco services are designed as one connected system: strategy that sets direction, design that builds trust, and execution that ships in production with confidence.
         </motion.p>
 
         <motion.div className="flex flex-wrap gap-2.5 mt-7" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}>
@@ -105,11 +111,12 @@ function CreativeMoodStrip() {
     { icon: Sparkles, label: "Brand Intelligence" },
     { icon: Layers3, label: "Interface Systems" },
     { icon: Wand2, label: "Motion Storytelling" },
+    { icon: MapPinned, label: "Local Search Presence" },
   ];
 
   return (
     <section className="px-6 md:px-12 pb-12">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {items.map((item, i) => {
           const Icon = item.icon;
           return (
@@ -280,22 +287,96 @@ export function ServicesPage() {
       <ServicesHero />
       <CreativeMoodStrip />
 
-      {/* Lamp beam divider before service blocks */}
-      <div className="w-full overflow-hidden" style={{ height: 380 }}>
-        <LampContainer className="min-h-0 h-full rounded-none bg-[oklch(8%_0.015_270)]">
+      {/* ── Purple Lamp Divider ── */}
+      <div className="relative w-full overflow-hidden" style={{ height: 420, background: "oklch(8% 0.015 270)" }}>
+        {/* Lamp beams */}
+        <div className="absolute inset-0 flex items-start justify-center pointer-events-none">
+          {/* Left beam */}
           <motion.div
-            className="text-center px-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, width: "12rem" }}
+            whileInView={{ opacity: 1, width: "28rem" }}
+            transition={{ delay: 0.2, duration: 1, ease: "easeInOut" }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.8 }}
+            className="absolute top-0 right-1/2 h-52 overflow-hidden"
+            style={{ backgroundImage: "conic-gradient(from 70deg at center top, oklch(65% 0.28 290), transparent, transparent)" }}
+          />
+
+          {/* Right beam */}
+          <motion.div
+            initial={{ opacity: 0, width: "12rem" }}
+            whileInView={{ opacity: 1, width: "28rem" }}
+            transition={{ delay: 0.2, duration: 1, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="absolute top-0 left-1/2 h-52 overflow-hidden"
+            style={{ backgroundImage: "conic-gradient(from 290deg at center top, transparent, transparent, oklch(65% 0.28 330))" }}
+          />
+
+          {/* Centre glow blob */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.35, duration: 0.9 }}
+            viewport={{ once: true }}
+            className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-6 rounded-full blur-3xl"
+            style={{ width: "18rem", height: "10rem", background: "oklch(65% 0.28 290 / 60%)" }}
+          />
+
+          {/* Horizontal light line */}
+          <motion.div
+            initial={{ width: "4rem", opacity: 0 }}
+            whileInView={{ width: "22rem", opacity: 1 }}
+            transition={{ delay: 0.45, duration: 0.9, ease: "easeInOut" }}
+            viewport={{ once: true }}
+            className="absolute h-[1.5px] top-[6.5rem] left-1/2 -translate-x-1/2"
+            style={{ background: "linear-gradient(90deg, transparent, oklch(65% 0.28 290), oklch(65% 0.28 330), transparent)" }}
+          />
+
+          {/* Floor cover — keeps bottom clean */}
+          <div className="absolute bottom-0 left-0 right-0 h-28" style={{ background: "linear-gradient(to top, oklch(8% 0.015 270) 55%, transparent)" }} />
+        </div>
+
+        {/* Content — sits over the beams */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center pb-6">
+          <motion.p
+            className="text-[10px] tracking-[0.4em] uppercase mb-5"
+            style={{ color: "oklch(50% 0.01 270)" }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 0.7 }}
+            viewport={{ once: true }}
           >
-            <p className="text-xs tracking-[0.35em] uppercase font-light mb-3" style={{ color: "oklch(55% 0.01 270)" }}>Built for outcomes</p>
-            <h2 className="text-3xl md:text-5xl font-light text-white tracking-tight" style={{ fontFamily: "var(--font-sora-var)" }}>
-              Launch-ready delivery. <span className="italic text-[oklch(65%_0.28_290)]">No fake claims.</span>
-            </h2>
-          </motion.div>
-        </LampContainer>
+            Built for outcomes
+          </motion.p>
+          <motion.h2
+            className="text-center font-black leading-[1.05] tracking-tight px-6"
+            style={{ fontFamily: "var(--font-sora-var)", fontSize: "clamp(2rem, 5.5vw, 4rem)" }}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.85, ease: [0.33, 1, 0.68, 1] }}
+            viewport={{ once: true }}
+          >
+            <span className="text-white">We ship work that is </span>
+            <span style={{ color: "oklch(65% 0.28 290)" }}>real,</span>
+            <br />
+            <span className="text-white">not </span>
+            <span
+              className="italic"
+              style={{ color: "oklch(65% 0.28 330)", fontFamily: "var(--font-dancing-script)", fontSize: "1.2em", lineHeight: 1 }}
+            >
+              rendered.
+            </span>
+          </motion.h2>
+          <motion.p
+            className="mt-6 text-sm max-w-sm text-center leading-relaxed"
+            style={{ color: "oklch(44% 0.01 270)" }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.78, duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            Every deliverable below is backed by production-ready code, real deployment, and zero invented metrics.
+          </motion.p>
+        </div>
       </div>
 
       {services.map((s, i) => <ServiceBlock key={s.id} service={s} index={i} />)}

@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { PageLoader } from "@/components/layout/PageLoader";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -17,8 +16,8 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { SpiralAnimation } from "@/components/ui/spiral-animation";
 const PROOF_ITEMS = [
   {
-    title: "Batla Medicos is live",
-    text: "This is the current public proof of delivery for the studio and the live demo linked across the site.",
+    title: "Five websites are live",
+    text: "Muscle Mantra, 3A Creative, Easy Motors Biel, Edufyi Tech Solutions, and Batla Medicos are live Oraxco projects.",
   },
   {
     title: "Established in 2026",
@@ -86,7 +85,7 @@ function SpiralIntro({ onEnter }: { onEnter: () => void }) {
 
   useEffect(() => {
     const delayId = setTimeout(() => {
-      const duration = 1000;
+      const duration = 450;
       const start = Date.now();
       const tick = () => {
         const p = Math.min((Date.now() - start) / duration, 1);
@@ -95,8 +94,7 @@ function SpiralIntro({ onEnter }: { onEnter: () => void }) {
           rafRef.current = requestAnimationFrame(tick);
         } else {
           setReady(true);
-          // Auto-proceed after a short pause
-          setTimeout(() => onEnter(), 700);
+          setTimeout(onEnter, 120);
         }
       };
       rafRef.current = requestAnimationFrame(tick);
@@ -113,7 +111,7 @@ function SpiralIntro({ onEnter }: { onEnter: () => void }) {
       className="fixed inset-0 z-[999] bg-black flex items-center justify-center"
       initial={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.03 }}
-      transition={{ duration: 0.7, ease: "easeInOut" }}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
     >
       {/* Spiral canvas background */}
       <SpiralAnimation />
@@ -125,7 +123,7 @@ function SpiralIntro({ onEnter }: { onEnter: () => void }) {
         animate={{ opacity: 1 }}
         transition={{ duration: 2, delay: 0.2 }}
       >
-        <span style={{ fontFamily: "var(--font-dancing-script)" }}>soft-era</span>
+        <span style={{ fontFamily: "var(--font-dancing-script)" }}>Oraxco</span>
       </motion.div>
 
       {/* Center UI */}
@@ -220,7 +218,6 @@ export default function Home() {
         animate={{ opacity: entered ? 1 : 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <PageLoader />
         <SmoothScroll>
           <Navbar />
           <main>

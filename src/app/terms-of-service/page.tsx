@@ -3,7 +3,7 @@ import { InnerPageLayout } from "@/components/layout/InnerPageLayout";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: "The terms and conditions governing your use of soft-era's website and services.",
+  description: "The terms and conditions governing your use of Oraxco's website and services.",
 };
 
 const sections = [

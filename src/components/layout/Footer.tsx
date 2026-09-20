@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 // Inline SVG social icons (lucide-react doesn't include brand icons)
 const XIcon = ({ size = 15 }: { size?: number }) => (
@@ -55,13 +56,14 @@ export function Footer() {
         {/* Top: Logo + tagline + social */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-14">
           <div>
-            <Link href="/" className="inline-flex items-center gap-3 mb-4 group" data-cursor>
-              <span
-                className="text-white transition-opacity group-hover:opacity-75"
-                style={{ fontFamily: "var(--font-dancing-script)", fontSize: "2.25rem", lineHeight: 1 }}
-              >
-                soft-era
-              </span>
+            <Link href="/" className="inline-flex items-center mb-4 group" data-cursor aria-label="Oraxco home">
+              <Image
+                src="/images/oraxco-logo.png"
+                alt="Oraxco"
+                width={160}
+                height={160}
+                className="h-14 w-auto object-contain transition-opacity group-hover:opacity-75"
+              />
             </Link>
             <p className="text-sm leading-relaxed max-w-64" style={{ color: "oklch(50% 0.01 270)" }}>
               A full-service creative studio. We design, build, and produce digital experiences that command attention.
@@ -128,7 +130,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
           <p className="text-xs" style={{ color: "oklch(35% 0.01 270)" }}>
-            © {new Date().getFullYear()} soft-era Studio. All rights reserved.
+            © {new Date().getFullYear()} Oraxco Studio. All rights reserved.
           </p>
           <p className="text-xs" style={{ color: "oklch(35% 0.01 270)" }}>
             Crafted with obsession. Built with Next.js.

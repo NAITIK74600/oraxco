@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { Monitor, Palette, Film, ArrowUpRight } from "lucide-react";
+import { Monitor, Palette, Film, ArrowUpRight, MapPinned } from "lucide-react";
 import Link from "next/link";
 
 const services = [
@@ -32,6 +32,15 @@ const services = [
     tags: ["VFX", "3D Animation", "CGI Visualization", "Motion Graphics"],
     accent: "oklch(65% 0.28 330)",
     href: "/services#service-03",
+  },
+  {
+    icon: MapPinned,
+    number: "04",
+    title: "SEO & Digital Footprint",
+    description: "We set up local search visibility, Google Business Profiles, Maps, listings, reviews, and tracking so customers can find and trust your business.",
+    tags: ["Local SEO", "Google Business", "Maps & Listings", "Analytics"],
+    accent: "oklch(68% 0.24 175)",
+    href: "/services#service-04",
   },
 ];
 
@@ -153,7 +162,7 @@ export function ServicesSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              Three disciplines.
+              Four disciplines.
               <br />
               <span className="text-gradient">One studio.</span>
             </motion.h2>
@@ -171,7 +180,7 @@ export function ServicesSection() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
           {services.map((service, i) => (
             <ServiceCard key={service.number} service={service} index={i} />
           ))}

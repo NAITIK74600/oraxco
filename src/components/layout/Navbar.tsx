@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
@@ -49,13 +50,15 @@ export function Navbar() {
           transition={{ duration: 0.4 }}
         >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-0 group" data-cursor>
-            <span
-              className="tracking-tight text-white transition-opacity group-hover:opacity-80"
-              style={{ fontFamily: "var(--font-dancing-script)", fontSize: "1.75rem", lineHeight: 1 }}
-            >
-              soft-era
-            </span>
+          <Link href="/" className="flex items-center group" data-cursor aria-label="Oraxco home">
+            <Image
+              src="/images/oraxco-logo.png"
+              alt="Oraxco"
+              width={140}
+              height={140}
+              className="h-10 w-auto object-contain transition-opacity group-hover:opacity-80"
+              priority
+            />
           </Link>
 
           {/* Desktop links */}

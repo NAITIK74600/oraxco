@@ -12,12 +12,13 @@ type Category = (typeof categories)[number];
 const projects = [
   {
     id: 1,
-    title: "Batla Medicos",
+    title: "Muscle Mantra",
     category: "Live Production" as Category,
     year: "2026",
-    image: "/images/batla-medicos-preview.jpg",
-    desc: "soft-era's first live production launch. This project is our active portfolio proof, built for real users and shipped with deployment-first thinking.",
-    result: "Live at batlamedicos.shop",
+    image: "/images/oraxco-logo.png",
+    url: "http://musclemantra.shop/",
+    desc: "An Oraxco live production launch, built for real users and shipped with deployment-first thinking.",
+    result: "Live at musclemantra.shop",
     deliverables: ["UI System", "Frontend Build", "Responsive QA", "Launch & Deployment"],
     accent: "oklch(65% 0.25 250)",
     metrics: [
@@ -26,6 +27,10 @@ const projects = [
       { label: "Stack", value: "Next.js" },
     ],
   },
+  { id: 2, title: "3A Creative", category: "Live Production" as Category, year: "2026", image: "/images/oraxco-logo.png", url: "https://3acreative.ch/", desc: "An Oraxco live production website.", result: "Live at 3acreative.ch", deliverables: ["UI System", "Frontend Build", "Responsive QA", "Launch & Deployment"], accent: "oklch(65% 0.28 290)", metrics: [{ label: "Type", value: "Live Website" }, { label: "Status", value: "Production" }, { label: "Stack", value: "Web" }] },
+  { id: 3, title: "Easy Motors Biel", category: "Live Production" as Category, year: "2026", image: "/images/oraxco-logo.png", url: "https://easymotorsbiel.ch/", desc: "An Oraxco live production website.", result: "Live at easymotorsbiel.ch", deliverables: ["UI System", "Frontend Build", "Responsive QA", "Launch & Deployment"], accent: "oklch(72% 0.22 210)", metrics: [{ label: "Type", value: "Live Website" }, { label: "Status", value: "Production" }, { label: "Stack", value: "Web" }] },
+  { id: 4, title: "Edufyi Tech Solutions", category: "Live Production" as Category, year: "2026", image: "/images/oraxco-logo.png", url: "https://www.edufyitechsolutions.com/", desc: "An Oraxco live production website.", result: "Live at edufyitechsolutions.com", deliverables: ["UI System", "Frontend Build", "Responsive QA", "Launch & Deployment"], accent: "oklch(65% 0.28 330)", metrics: [{ label: "Type", value: "Live Website" }, { label: "Status", value: "Production" }, { label: "Stack", value: "Web" }] },
+  { id: 5, title: "Batla Medicos", category: "Live Production" as Category, year: "2026", image: "/images/batla-medicos-preview.jpg", url: "https://batlamedicos.shop/", desc: "A full-featured medical retail storefront built and shipped as a live Oraxco production website.", result: "Live at batlamedicos.shop", deliverables: ["UI System", "Frontend Build", "Responsive QA", "Launch & Deployment"], accent: "oklch(68% 0.24 175)", metrics: [{ label: "Type", value: "Live Website" }, { label: "Status", value: "Production" }, { label: "Stack", value: "Web" }] },
 ];
 
 const process = [
@@ -109,7 +114,7 @@ function FeaturedCaseStudy() {
             <div className="relative min-h-[300px] lg:min-h-[420px]">
               <Image
                 src={project.image}
-                alt="Batla Medicos live website preview"
+                alt={`${project.title} live website preview`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover object-top"
@@ -152,7 +157,7 @@ function FeaturedCaseStudy() {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <a href="https://batlamedicos.shop/" target="_blank" rel="noreferrer">
+                <a href={project.url} target="_blank" rel="noreferrer">
                   <motion.span
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white"
                     style={{ background: "linear-gradient(135deg, oklch(65% 0.28 290), oklch(65% 0.28 330))" }}
@@ -319,7 +324,7 @@ function ProjectModal({ project, onClose }: { project: (typeof projects)[number]
               </span>
             ))}
           </div>
-          <a href="https://batlamedicos.shop/" target="_blank" rel="noreferrer">
+          <a href={project.url} target="_blank" rel="noreferrer">
             <motion.span
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white"
               style={{ background: "linear-gradient(135deg, oklch(65% 0.28 290), oklch(65% 0.28 330))" }}
